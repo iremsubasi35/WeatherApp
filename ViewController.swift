@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
     @IBOutlet weak var lblCity: UILabel!
@@ -22,14 +23,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Weather"
         let service = Service(baseUrl: "https://api.weatherapi.com/v1/")
-                service.getWeather(endPoint: "current.json?key=f1251bf35ec54bd1adb145144222509&q=izmir&aqi=no") { movies, error in
+                service.getWeather(endPoint: "current.json?key=f1251bf35ec54bd1adb145144222509&q=izmir&aqi=no") { hava, error in
                  //   self.weatherPage = weatherPage.results ?? []
-                    print(movies)
+                    print(hava)
                     print(error)
+                    self.lblCity.text = hava?.location?.name
+                    self.textWeather.text = hava?.current?.condition?.text
+                    
+                    
+                    
+                    
+                    
                 }
-
+     //   lblCity.text = WeatherResponse
+       // self.lblCity.text = Weather?.name
     }
-
+    
+        
+    
+   
 
 }
 

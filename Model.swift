@@ -7,17 +7,22 @@
 
 import Foundation
 
+struct WeatherResponse : Codable{
+    let current : Current?
+    let location : Location?
+}
 
-struct Weather{
+struct Weather: Codable{
+    let condition : Condition?
     let name : String?
     let temp : Double?
     let wind : Double?
     let feelTemp : Double?
-    let update : Timer?  //tarih ve saat için araştır
+    let update : String?
     let weatherText : String?
     let icon : String?
     enum CodingKeys: String,CodingKey{
-        case name , icon
+        case name , icon , condition
         case temp = "temp_c"
         case wind = "wind_mph"
         case feelTemp = "feelslike_c"
@@ -25,15 +30,48 @@ struct Weather{
         case weatherText = "text"
         
     }
-    struct CellModel{
-        let time : Date? //??
-        let text : String?
-        let temp : Double?
-        let icon : String?
-        enum CodingKeys: String,CodingKey{
-            case time,text,icon
-            case temp = "temp_c"
-            
-        }
+}
+
+struct Location : Codable {
+    let name : String?
+    
+}
+
+struct Condition : Codable{
+    let text : String?
+    let icon : String?
+}
+
+struct Current : Codable{
+    let condition : Condition?
+    let temp : Double?
+    let wind : Double?
+    let feelTemp : Double?
+    let lastUpdated : String?
+    enum CodingKeys: String,CodingKey{
+        case condition
+        case lastUpdated = "last_updated"
+        case temp = "temp_c"
+        case wind = "wind_mph"
+        case feelTemp = "feelslike_c"
     }
+}
+
+struct CellModel: Codable{
+    let time : String?
+    let text : String?
+    let temp : Double?
+    let icon : String?
+    enum CodingKeys: String,CodingKey{
+        case time,text,icon
+        case temp = "temp_c"
+        
+    }
+}
+struct Forecast : Codable {
+    let forcastDay : [Day]
+    
+}
+struct Day : Codable {
+    
 }
