@@ -40,8 +40,6 @@ class ViewController: UIViewController {
                         if let winds = current.wind {
                             self.windSpeed.text = "\(winds)"
                         }
-                        
-                        
                     }
         
                     self.lastUpdate.text = hava?.current?.lastUpdated

@@ -27,7 +27,7 @@ struct ForecastDay : Codable {
     let day: Day
     let dailyDate : String?
     enum CodingKeys : String , CodingKey{
-        case day = "Day"
+        case day = "day"
         case dailyDate = "date"
     }
     
