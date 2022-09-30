@@ -24,7 +24,7 @@ struct Weather: Codable{
     enum CodingKeys: String,CodingKey{
         case name , icon , condition
         case temp = "temp_c"
-        case wind = "wind_mph"
+        case wind = "wind_kph"
         case feelTemp = "feelslike_c"
         case update = "last_updated"
         case weatherText = "text"
@@ -52,7 +52,7 @@ struct Current : Codable{
         case condition
         case lastUpdated = "last_updated"
         case temp = "temp_c"
-        case wind = "wind_mph"
+        case wind = "wind_kph"
         case feelTemp = "feelslike_c"
     }
 }

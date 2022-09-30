@@ -18,25 +18,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var lastUpdate: UILabel!
     @IBAction func showMore(_ sender: Any) {
     }
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Weather"
         let service = Service(baseUrl: "https://api.weatherapi.com/v1/")
                 service.getWeather(endPoint: "current.json?key=f1251bf35ec54bd1adb145144222509&q=izmir&aqi=no") { hava, error in
-                 //   self.weatherPage = weatherPage.results ?? []
                     print(hava)
                     print(error)
+                    
                     self.lblCity.text = hava?.location?.name
                     self.textWeather.text = hava?.current?.condition?.text
-                    
-                    
-                    
-                    
+                    self.tempWeather.text = "\(hava?.current?.temp)"
+        self.feelTemp.text = "\(hava?.current?.feelTemp)"
+        self.windSpeed.text = "\(hava?.current?.wind)"
+                    self.lastUpdate.text = hava?.current?.lastUpdated
+                    //İCON
+                    let imagePath = "https:" + (hava?.current?.condition?.icon ?? "")
+                    let url = URL(string: imagePath)
+                    self.iconWeather.kf.setImage(with: url)
                     
                 }
-     //   lblCity.text = WeatherResponse
-       // self.lblCity.text = Weather?.name
     }
     
         

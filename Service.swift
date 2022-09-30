@@ -18,7 +18,8 @@ class Service{
     
     func getWeather(endPoint:String,completion:@escaping(WeatherResponse?,Error?)->Void){
         AF.request(self.baseUrl + endPoint, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
-            guard let data = responseData.data
+            guard
+                let data = responseData.data
             else{
                 completion(nil,nil)
                 return
@@ -35,7 +36,8 @@ class Service{
     
     func getDailyWeather(endPoint:String,completion:@escaping(WeatherResponse?,Error?)->Void){
         AF.request(self.baseUrl + endPoint, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
-            guard let data = responseData.data
+            guard
+                let data = responseData.data
             else{
                 completion(nil,nil)
                 return
@@ -52,7 +54,8 @@ class Service{
         }
     func getHourlyWeather(endPoint:String,completion:@escaping(WeatherResponse?,Error?)->Void){
         AF.request(self.baseUrl + endPoint, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
-            guard let data = responseData.data
+            guard
+                let data = responseData.data
             else{
                 completion(nil,nil)
                 return
