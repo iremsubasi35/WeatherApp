@@ -127,7 +127,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="69"/>
+            <point key="canvasLocation" x="840" y="58"/>
+        </scene>
+        <!--Daily WeatherVC-->
+        <scene sceneID="kUR-yW-oa9">
+            <objects>
+                <viewController id="wPi-Vw-moG" customClass="DailyWeatherVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Af-WJ-yH1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQH-p0-aVa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="H4g-fC-xgz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sJV-85-ZOK">
+                                <rect key="frame" x="0.0" y="32" width="320" height="536"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IOm-x3-RWs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sJV-85-ZOK" firstAttribute="top" secondItem="jQH-p0-aVa" secondAttribute="bottom" id="GAg-Gs-KVb"/>
+                            <constraint firstItem="jQH-p0-aVa" firstAttribute="top" secondItem="IOm-x3-RWs" secondAttribute="top" id="I4w-dS-vPJ"/>
+                            <constraint firstItem="IOm-x3-RWs" firstAttribute="bottom" secondItem="sJV-85-ZOK" secondAttribute="bottom" id="Nee-a4-JUG"/>
+                            <constraint firstItem="IOm-x3-RWs" firstAttribute="trailing" secondItem="sJV-85-ZOK" secondAttribute="trailing" id="VWg-yG-GYf"/>
+                            <constraint firstItem="IOm-x3-RWs" firstAttribute="trailing" secondItem="jQH-p0-aVa" secondAttribute="trailing" id="c6u-EE-PTn"/>
+                            <constraint firstItem="sJV-85-ZOK" firstAttribute="leading" secondItem="IOm-x3-RWs" secondAttribute="leading" id="jVp-Az-o2X"/>
+                            <constraint firstItem="jQH-p0-aVa" firstAttribute="leading" secondItem="IOm-x3-RWs" secondAttribute="leading" id="kBw-pF-Csu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vAc-S7-KdI"/>
+                    <connections>
+                        <outlet property="dailyCityName" destination="jQH-p0-aVa" id="fsT-hI-a8t"/>
+                        <outlet property="dailyWeatherTV" destination="sJV-85-ZOK" id="Ai7-CW-lcf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="998-oa-WoW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613" y="93"/>
         </scene>
         <!--Hourly Weather Cell-->
         <scene sceneID="EVT-QO-xPJ">
@@ -138,13 +182,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-N5-dqD">
-                                <rect key="frame" x="70" y="0.0" width="180" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="k5a-rl-qls"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FFk-Oe-MFm">
-                                <rect key="frame" x="0.0" y="30" width="320" height="538"/>
+                                <rect key="frame" x="0.0" y="32" width="320" height="536"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -153,10 +200,10 @@
                         <constraints>
                             <constraint firstItem="wBb-N5-dqD" firstAttribute="top" secondItem="sL5-NE-MO9" secondAttribute="top" id="6pn-wb-1mz"/>
                             <constraint firstItem="sL5-NE-MO9" firstAttribute="bottom" secondItem="FFk-Oe-MFm" secondAttribute="bottom" id="7Ec-a2-gOf"/>
-                            <constraint firstItem="wBb-N5-dqD" firstAttribute="leading" secondItem="sL5-NE-MO9" secondAttribute="leading" constant="70" id="TPg-gs-rQc"/>
+                            <constraint firstItem="wBb-N5-dqD" firstAttribute="leading" secondItem="sL5-NE-MO9" secondAttribute="leading" id="K9D-Ee-pZY"/>
+                            <constraint firstItem="sL5-NE-MO9" firstAttribute="trailing" secondItem="wBb-N5-dqD" secondAttribute="trailing" id="bAT-Pj-MrX"/>
                             <constraint firstItem="FFk-Oe-MFm" firstAttribute="top" secondItem="wBb-N5-dqD" secondAttribute="bottom" id="dEN-pk-t50"/>
                             <constraint firstItem="FFk-Oe-MFm" firstAttribute="leading" secondItem="sL5-NE-MO9" secondAttribute="leading" id="fDf-wB-0s6"/>
-                            <constraint firstItem="sL5-NE-MO9" firstAttribute="trailing" secondItem="wBb-N5-dqD" secondAttribute="trailing" constant="70" id="i8Q-Q9-llY"/>
                             <constraint firstItem="sL5-NE-MO9" firstAttribute="trailing" secondItem="FFk-Oe-MFm" secondAttribute="trailing" id="nxI-tJ-YnO"/>
                         </constraints>
                     </view>
@@ -166,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWz-VJ-NyA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1581" y="77"/>
+            <point key="canvasLocation" x="2366" y="69"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wOz-C7-hWF">
@@ -179,7 +226,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="c5S-or-Hk4"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xJf-dC-Dp9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cG-tp-Swp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

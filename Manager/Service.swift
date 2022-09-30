@@ -34,7 +34,7 @@ class Service{
                     }
         }
     
-    func getDailyWeather(endPoint:String,completion:@escaping(WeatherResponse?,Error?)->Void){
+    func getDailyWeather(endPoint:String,completion:@escaping(DailyWeatherResponse?,Error?)->Void){
         AF.request(self.baseUrl + endPoint, headers: nil, interceptor: nil, requestModifier: nil).response { (responseData) in
             guard
                 let data = responseData.data
@@ -43,7 +43,7 @@ class Service{
                 return
             }
             do {
-                            let dailyResponse = try JSONDecoder().decode(WeatherResponse.self, from: data)
+                            let dailyResponse = try JSONDecoder().decode(DailyWeatherResponse.self, from: data)
                             
                             completion(dailyResponse,nil)
                         } catch {

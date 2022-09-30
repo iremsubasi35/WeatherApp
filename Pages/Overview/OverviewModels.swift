@@ -10,31 +10,11 @@ import Foundation
 struct WeatherResponse : Codable{
     let current : Current?
     let location : Location?
-}
-
-struct Weather: Codable{
-    let condition : Condition?
-    let name : String?
-    let temp : Double?
-    let wind : Double?
-    let feelTemp : Double?
-    let update : String?
-    let weatherText : String?
-    let icon : String?
-    enum CodingKeys: String,CodingKey{
-        case name , icon , condition
-        case temp = "temp_c"
-        case wind = "wind_kph"
-        case feelTemp = "feelslike_c"
-        case update = "last_updated"
-        case weatherText = "text"
-        
-    }
+    //let forecast: Forecast?
 }
 
 struct Location : Codable {
     let name : String?
-    
 }
 
 struct Condition : Codable{
@@ -68,10 +48,24 @@ struct CellModel: Codable{
         
     }
 }
-struct Forecast : Codable {
-    let forcastDay : [Day]
-    
-}
-struct Day : Codable {
-    
-}
+
+
+//struct Weather: Codable{
+//    let condition : Condition?
+//    let name : String?
+//    let temp : Double?
+//    let wind : Double?
+//    let feelTemp : Double?
+//    let update : String?
+//    let weatherText : String?
+//    let icon : String?
+//    enum CodingKeys: String,CodingKey{
+//        case name , icon , condition
+//        case temp = "temp_c"
+//        case wind = "wind_kph"
+//        case feelTemp = "feelslike_c"
+//        case update = "last_updated"
+//        case weatherText = "text"
+//
+//    }
+//}

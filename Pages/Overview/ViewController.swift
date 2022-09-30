@@ -29,9 +29,21 @@ class ViewController: UIViewController {
                     
                     self.lblCity.text = hava?.location?.name
                     self.textWeather.text = hava?.current?.condition?.text
-                    self.tempWeather.text = "\(hava?.current?.temp)"
-        self.feelTemp.text = "\(hava?.current?.feelTemp)"
-        self.windSpeed.text = "\(hava?.current?.wind)"
+                    
+                    if let current = hava?.current {
+                        if let temp = current.temp {
+                            self.tempWeather.text = "\(temp)"
+                        }
+                        if let ftemp = current.feelTemp{
+                            self.feelTemp.text = "\(ftemp)"
+                        }
+                        if let winds = current.wind {
+                            self.windSpeed.text = "\(winds)"
+                        }
+                        
+                        
+                    }
+        
                     self.lastUpdate.text = hava?.current?.lastUpdated
                     //İCON
                     let imagePath = "https:" + (hava?.current?.condition?.icon ?? "")
