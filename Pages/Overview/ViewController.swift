@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var windSpeed: UILabel!
     @IBOutlet weak var lastUpdate: UILabel!
     @IBAction func showMore(_ sender: Any) {
+    
     }
  
     override func viewDidLoad() {
@@ -50,10 +51,5 @@ class ViewController: UIViewController {
                     
                 }
     }
-    
-        
-    
-   
-
 }
 

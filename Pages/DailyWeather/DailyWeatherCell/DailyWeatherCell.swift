@@ -27,9 +27,7 @@ class DailyWeatherCell: UITableViewCell {
         self.date.text = dailyModel.dailyDate
         self.dailyWeatherLbl.text = dailyModel.day.daycondition?.text
         
-        //DOUBLE
-      //  if let dailyWeatherModel = dailyModel.day
-        if dailyModel.day != nil {
+        
             if let maxTemps = dailyModel.day.maxTempCelcius {
                 self.maxTempLbl.text = "\(maxTemps)"
             }
@@ -42,7 +40,7 @@ class DailyWeatherCell: UITableViewCell {
             if let maxWinds = dailyModel.day.maxWind{
                 self.maxWindLbl.text = "\(maxWinds)"
             }
-        }
+    
         
         // İCON
         let imagePath = "https:" + (dailyModel.day.daycondition?.icon ?? "")

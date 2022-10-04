@@ -42,7 +42,7 @@ struct Day: Codable {
     let totalPreciption: Double?
     
     enum CodingKeys: String, CodingKey {
-        case daycondition
+        case daycondition = "condition"
         case maxTempCelcius = "maxtemp_c"
         case minTempCelcius = "mintemp_c"
         case maxWind = "maxwind_kph"

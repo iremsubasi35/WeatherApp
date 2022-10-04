@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
+
 class DailyWeatherVC : UIViewController,UITableViewDataSource, UITableViewDelegate
 {
      private var dailyWeather: [ForecastDay] = []
   
 
     @IBOutlet weak var dailyWeatherTV: UITableView!
-    @IBOutlet weak var dailyCityName: UILabel!
+
     
     
     
@@ -22,6 +23,7 @@ class DailyWeatherVC : UIViewController,UITableViewDataSource, UITableViewDelega
 override func viewDidLoad() {
         super.viewDidLoad()
    
+
     dailyWeatherTV.register(DailyWeatherCell.nib(), forCellReuseIdentifier: DailyWeatherCell.identifier)
     
      dailyWeatherTV.delegate = self
@@ -33,20 +35,29 @@ override func viewDidLoad() {
               print(error)
               
               self.dailyWeather = daily?.forecast?.forecastDay ?? []
-              self.dailyCityName.text =  daily?.location?.name
+              self.title =  daily?.location?.name
               self.dailyWeatherTV.reloadData()
               
               
           }
     
 }
+    override func viewDidLayoutSubviews() {
+          super.viewDidLayoutSubviews()
+          self.dailyWeatherTV.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          100
     }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dailyWeather.count
     }
 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: DailyWeatherCell.identifier, for: indexPath) as! DailyWeatherCell
