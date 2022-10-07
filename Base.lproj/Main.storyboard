@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="998-oa-WoW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1464" y="-533"/>
+            <point key="canvasLocation" x="1614" y="-503"/>
         </scene>
         <!--Hourly WeatherVC-->
         <scene sceneID="zG6-39-zzi">
@@ -292,7 +292,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Zlr-0R-TQb" kind="relationship" relationship="rootViewController" id="NZk-uI-9VD"/>
+                        <segue destination="Zlr-0R-TQb" kind="relationship" relationship="rootViewController" id="2yh-uz-KCw"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cG-tp-Swp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

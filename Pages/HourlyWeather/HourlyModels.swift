@@ -23,7 +23,7 @@ struct HourlyForecast : Codable {
 }
 
 struct ForecastHour : Codable {
-    let hour: Hour
+    let hour: [Hour]
     let date : String?
     enum CodingKeys : String , CodingKey{
         case hour , date

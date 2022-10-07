@@ -14,13 +14,17 @@ class HourlyWeatherVC : UIViewController,UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var hourlyCityLbl: UILabel!
     
     
-    private var hourlyWeather: [ForecastHour] = []
+    private var hourlyWeather: [Hour] = []
     @IBOutlet weak var hourlyWeatherTV: UITableView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Weather"
+        
+        hourlyWeatherTV.register(HourlyWeatherCell.nib(), forCellReuseIdentifier: HourlyWeatherCell.identifier)
+        
         hourlyWeatherTV.delegate = self
         hourlyWeatherTV.dataSource = self
         
@@ -28,8 +32,11 @@ class HourlyWeatherVC : UIViewController,UITableViewDataSource, UITableViewDeleg
             service.getHourlyWeather(endPoint: "forecast.json?key=f1251bf35ec54bd1adb145144222509&q=izmir&days=7&aqi=no&alerts=no") {       hourly, error in
                 print(hourly)
                 print(error)
-        self.hourlyWeather = hourly?.forecast?.forecastDay ?? []
-              //  self.hourlyDateLbl.text ?
+                
+                self.hourlyWeather = hourly?.forecast?.forecastDay[ForecastHour].hour[Hour] ?? []
+                self.hourlyDateLbl.text = hourly?.forecast?.forecastDay[ForecastHour].date
+                
+                self.hourlyCityLbl.text = hourly?.location?.name
         self.hourlyWeatherTV.reloadData()
              
             }
@@ -38,7 +45,7 @@ class HourlyWeatherVC : UIViewController,UITableViewDataSource, UITableViewDeleg
         100
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        hourlyWeather.count
+        return hourlyWeather.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

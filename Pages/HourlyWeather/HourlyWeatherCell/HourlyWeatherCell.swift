@@ -18,24 +18,24 @@ class HourlyWeatherCell : UITableViewCell{
     @IBOutlet weak var iconHourly: UIImageView!
     
     static let identifier : String = "HourlyWeatherCell"
-    func updateCell(hourlyModel : ForecastHour){
+    func updateCell(hourlyModel : Hour){
         
-        self.hourlyWeatherLbl.text = hourlyModel.hour.hourcondition?.text
+        self.hourlyWeatherLbl.text = hourlyModel.hourcondition?.text
         
-        if let hourTemp = hourlyModel.hour.hourTemp{
+        if let hourTemp = hourlyModel.hourTemp{
             self.hourlyWeatherLbl.text = "\(hourTemp)"
         }
-        if let feltTemp = hourlyModel.hour.feltTemp{
+        if let feltTemp = hourlyModel.feltTemp{
             self.hourlyFeltTempLbl.text = "\(feltTemp)"
         }
-        if let hourwind = hourlyModel.hour.hourWind{
+        if let hourwind = hourlyModel.hourWind{
             self.hourlyWind.text = "\(hourwind)"
         }
-        if let humidity = hourlyModel.hour.humidity{
+        if let humidity = hourlyModel.humidity{
             self.humidity.text = "\(humidity)"
         }
         
-        let imagePath = "https:" + (hourlyModel.hour.hourcondition?.icon ?? "")
+        let imagePath = "https:" + (hourlyModel.hourcondition?.icon ?? "")
         let url = URL(string: imagePath)
         self.iconHourly.kf.setImage(with: url)
     }
