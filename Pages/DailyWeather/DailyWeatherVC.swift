@@ -12,7 +12,7 @@ import UIKit
 class DailyWeatherVC : UIViewController,UITableViewDataSource, UITableViewDelegate
 {
      private var dailyWeather: [ForecastDay] = []
-  
+    
 
     @IBOutlet weak var dailyWeatherTV: UITableView!
 
@@ -30,17 +30,14 @@ override func viewDidLoad() {
      dailyWeatherTV.dataSource = self
     
       let service = Service(baseUrl: "https://api.weatherapi.com/v1/")
-          service.getDailyWeather(endPoint: "forecast.json?key=f1251bf35ec54bd1adb145144222509&q=izmir&days=7&aqi=no&alerts=no") {       daily, error in
+          service.getDailyWeather(endPoint: "forecast.json?key=71072d057ba4417e9d8190629213103&q=izmir&days=10&aqi=no&alerts=no") {       daily, error in
               print(daily)
               print(error)
               
               self.dailyWeather = daily?.forecast?.forecastDay ?? []
               self.title =  daily?.location?.name
               self.dailyWeatherTV.reloadData()
-              
-              
           }
-    
 }
     override func viewDidLayoutSubviews() {
           super.viewDidLayoutSubviews()
@@ -65,6 +62,12 @@ override func viewDidLoad() {
         cell.updateCell(dailyModel: model)
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HourlyWeatherVC") as!  HourlyWeatherVC
+        viewController.dayIndex = indexPath.row
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

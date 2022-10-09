@@ -30,8 +30,6 @@ struct ForecastDay : Codable {
         case day = "day"
         case dailyDate = "date"
     }
-    
-    
 }
 
 struct Day: Codable {

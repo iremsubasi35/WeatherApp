@@ -27,27 +27,24 @@ struct ForecastHour : Codable {
     let date : String?
     enum CodingKeys : String , CodingKey{
         case hour , date
-        
     }
 }
-
 struct Hour: Codable {
     let hourcondition : HourCondition?
     let hourTemp: Double?
     let feltTemp: Double?
     let hourWind : Double?
     let humidity: Int?
-    
+    let time : Int
     enum CodingKeys: String, CodingKey {
         case humidity
         case hourcondition = "condition"
         case hourTemp = "temp_c"
         case feltTemp = "feelslike_c"
         case hourWind = "wind_kph"
-         
+        case time = "time_epoch"
     }
 }
-
 struct HourCondition : Codable {
    let text : String?
    let icon : String?

@@ -17,14 +17,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var windSpeed: UILabel!
     @IBOutlet weak var lastUpdate: UILabel!
     @IBAction func showMore(_ sender: Any) {
-    
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "DailyWeatherVC") as!  DailyWeatherVC
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Weather"
         let service = Service(baseUrl: "https://api.weatherapi.com/v1/")
-                service.getWeather(endPoint: "current.json?key=f1251bf35ec54bd1adb145144222509&q=izmir&aqi=no") { hava, error in
+                service.getWeather(endPoint: "current.json?key=71072d057ba4417e9d8190629213103&q=izmir&aqi=no") { hava, error in
                     print(hava)
                     print(error)
                     
@@ -50,6 +52,5 @@ class ViewController: UIViewController {
                     self.iconWeather.kf.setImage(with: url)
                     
                 }
-    }
 }
-
+}
