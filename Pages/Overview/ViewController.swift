@@ -16,15 +16,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var feelTemp: UILabel!
     @IBOutlet weak var windSpeed: UILabel!
     @IBOutlet weak var lastUpdate: UILabel!
+   
+    @IBAction func notification(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "NotificationVC") as!  NotificationVC
+        self.navigationController?.pushViewController(viewController, animated: true)
+         
+    }
+    
     @IBAction func showMore(_ sender: Any) {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "DailyWeatherVC") as!  DailyWeatherVC
         self.navigationController?.pushViewController(viewController, animated: true)
+        
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Weather"
+        //configureItems()
         let service = Service(baseUrl: "https://api.weatherapi.com/v1/")
                 service.getWeather(endPoint: "current.json?key=71072d057ba4417e9d8190629213103&q=izmir&aqi=no") { hava, error in
                     print(hava)
@@ -52,5 +63,11 @@ class ViewController: UIViewController {
                     self.iconWeather.kf.setImage(with: url)
                     
                 }
+        
 }
+   //  func configureItems(){
+   //     let image = UIImage(systemName: "bell")
+   //     self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addTapped))
+   //     navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+  //  }
 }
